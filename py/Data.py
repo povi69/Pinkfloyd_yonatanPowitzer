@@ -16,6 +16,7 @@ def parse_database_file(database_file):
                     'songs': []
                 }
                 albums.append(current_album)
+                current_song = None
             elif line.startswith('*'):
                 # Song line
                 if current_album is not None:
@@ -30,8 +31,10 @@ def parse_database_file(database_file):
                         'duration': duration,
                         'lyrics': lyrics
                     })
+                    current_album['songs'].append({current_song})
             else:
-                # Handle unexpected lines or errors in file format
+                if current_album is not None:
+                    current_song['lyrics'] += f'\n{line}' if len(line) > 0 else ''
                 continue
 
     return albums
@@ -43,7 +46,7 @@ def parse_database_file(database_file):
         for line in f:
             line = line.strip()
             if line.startswith('#'):
-                # New album header
+                # New album title
                 album_info = line[1:].strip().split('::')
                 album_name = album_info[0]
                 release_year = album_info[1]
@@ -68,7 +71,7 @@ def parse_database_file(database_file):
                         'lyrics': lyrics
                     })
             else:
-                # Handle unexpected lines or errors in file format
+
                 continue
 
     return albums
