@@ -33,10 +33,7 @@ def main():
 
                 if command == "1":
                     # List Albums command
-                    print(albums_list)
-                    albums_list = handle_list_albums()
-                    response = "\n".join(albums_list)
-                    client_socket.send(response.encode())
+                    from test import search_album
 
                 # Add more command handling here (e.g., List Songs in Album, etc.)
 
