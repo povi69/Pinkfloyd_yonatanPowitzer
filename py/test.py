@@ -34,7 +34,6 @@ with open("Pink_Floyd_DB.txt", 'r', encoding='utf-8') as f:
             # Handle unexpected lines or errors in file format
             continue
 
-
 def search_album(album_name):
     for album in albums:
         if album['name'].lower() == album_name.lower():
@@ -43,7 +42,4 @@ def search_album(album_name):
             return
 
 album_to_search = input("Enter an album name: ")
-search_album(album_to_search)        
-
-
-print("hello")
+search_album(album_to_search)
