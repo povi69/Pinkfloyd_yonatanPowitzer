@@ -41,7 +41,7 @@ def get_song_by_word(word):
     matching_songs = []
     for album in albums:
         for song in album['songs']:
-            # Use regex to match whole words only
+            # Use regex to match whole words only (I didn't really get what does this line do but it works)
             if re.search(rf'\b{re.escape(word.lower())}\b', song['name'].lower()):
                 matching_songs.append(song['name'])
     if not matching_songs:
