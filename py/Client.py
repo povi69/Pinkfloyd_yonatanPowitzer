@@ -39,14 +39,14 @@ def main():
                 # Get the parameter for the command
                 if command in ['2']:
                     parameter = input("Enter the album name: ")
-                elif command in ['3', '4']:
-                    parameter = input("Enter the song name: ")
-                elif command in ['5']:
-                    parameter = input("Enter the word: ")
+                elif command in ['3', '4', '5']:
+                    parameter = input("Enter th song name: ")
                 elif command in ['6', '7']:
                     parameter = input("Enter the keyword: ")
+                elif command in ['8']:
+                    client_socket.send(command.encode())
                 else:
-                    print("Invalid command. Please try again.")
+                    print("Invalid Input. Please try again.")
                     continue
 
                 # Send command and parameter to server
@@ -60,5 +60,8 @@ def main():
         # Close the socket connection
         client_socket.close()
 
+#If the source file is executed as the main program, the interpreter sets the __name__
+# variable to have a value “__main__”. If this file is being imported from another module,
+# __name__ will be set to the module’s name.
 if __name__ == "__main__":
     main()
