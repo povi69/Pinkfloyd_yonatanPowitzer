@@ -40,7 +40,7 @@ def main():
                 if command in ['2']:
                     parameter = input("Enter the album name: ")
                 elif command in ['3', '4', '5']:
-                    parameter = input("Enter th song name: ")
+                    parameter = input("Enter the song name: ")
                 elif command in ['6', '7']:
                     parameter = input("Enter the keyword: ")
                 elif command in ['8']:
