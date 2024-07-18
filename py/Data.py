@@ -1,10 +1,10 @@
 def parse_database_file(database_file):
     albums = []
 
-    with open(database_file, 'r', encoding='utf-8') as f:
+    with open(database_file, 'r', encoding='utf-8') as dataFile:
         current_album = None
         current_song = None
-        for line in f:
+        for line in dataFile:
             line = line.strip()
             if line.startswith('#'):
                 # New album header
@@ -19,6 +19,8 @@ def parse_database_file(database_file):
                 albums.append(current_album)
             elif line.startswith('*'):
                 # Song line
+                #strip() removes spaces or blank spaces
+                #split() seperate the object with a paremeter
                 if current_album is not None:
                     song_info = line[1:].strip().split('::')
                     song_name = song_info[0]
